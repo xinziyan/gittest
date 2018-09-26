@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+       /* ul li{
+        	display: inline-block;*/
+        
+	</style>
+</head>
+
+<body>
+     <ul id="left">
+          <li >剪刀</li>
+          <li>石头</li>
+          <li>布</li>
+     </ul>
+     <ul id="right">
+          <li>剪刀</li>
+          <li>石头</li>
+          <li>布</li>
+     </ul>
+	<script type="text/javascript">
+	startCompare();
+	function startCompare(){
+       var left_l=document.getElementById('left');
+       var lis_l=left_l.getElementsByTagName('li');
+       var right_l=document.getElementById('right');
+       var lis_r=right_l.getElementsByTagName('li');
+       for(var i=0;i<lis_l.length;i++){
+       	//循环给上边的每一个li绑定点击事件，并增添一个index属性
+       	lis_l.index=i;
+       	lis_l[i].onclick=function(){
+                  alert(this.index)
+                  left_num=this.index;
+                  compare();
+       	}
+       	//循环给上边的每一个li绑定点击事件，并增添一个index属性
+        lis_l.index=i;
+       	lis_l[i].onclick=function(){
+           alert(this.index);
+           right_num=this.index;
+           compare();
+       	}
+       }
+       }
+       function compare(){
+       	if(left_num==right_num){
+       		alert("平局");
+       		//本局结束后重新开始游戏
+       	}else if((right_num-left_num)==1
+       	||(right_num-left_num)==-2)
+       	{
+       		alert("")
+
+       	}else if((right_num-left_num)==2
+       		||(right_num-left_num)==-1){
+       		alert("左胜");
+       		startCompare();
+       	}
+            
+       }
+	</script>
+</body>
+</html>
